@@ -15,7 +15,7 @@ public class IntegerStack {
     {
         if (depth > 0)
         {
-            return stack[depth -1];
+            return stack[depth - 1];
         }
         return 0;
     }
