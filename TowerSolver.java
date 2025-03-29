@@ -10,7 +10,11 @@ public class TowerSolver {
     public void solve(TowerModel model)
     {
         this.model = model;
-        // Call the missing solve method (not this one)
+        int totalD = model.getHeight();
+        int fromT = 0;
+        int toT = 2;
+        int tempT = 1;
+        solve(totalD, fromT, toT, tempT);
     }
 
     // Create an overloaded solve(...) method
@@ -21,12 +25,15 @@ public class TowerSolver {
 
     private void solve(int n, int source, int destination, int auxiliary)
     {
-      if (n > 0) 
+        if (n <= 0)
+        {
+            return;
+        }
+        else
         {
             solve(n - 1, source, auxiliary, destination);
             model.move(source, destination);
             solve(n - 1, auxiliary, destination, source);
         }
     }
-
 }
